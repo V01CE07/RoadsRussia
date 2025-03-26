@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="1280" Height="720"
+		MaxWidth="1280" MaxHeight="720" MinWidth="1280" MinHeight="720"
+		x:CompileBindings="False"
+		WindowStartupLocation="CenterScreen"
+        x:Class="calendar.News"
+        Title="Новости и события">
+	<Grid RowDefinitions="100,150,100"  ShowGridLines="True">
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#a1d99b">
+		<Ellipse HorizontalAlignment="Left" Fill="#238b45" Width="90" Height="90"
+				 Margin="20, 5, 0, 0">
+		</Ellipse>
+		</StackPanel>
+		<TextBlock HorizontalAlignment="Left" Text="Логотип" Grid.Row="0" Grid.Column="0"
+					   Margin="35, 0, 0, 0" VerticalAlignment="Center" FontWeight="Bold">
+		</TextBlock>
+		<TextBox Background="White" Width="800" Height="40" Margin="0 0 200 0"
+				 CornerRadius="10" Watermark="Поиск" FontWeight="Bold" FontSize="16">
+			
+		</TextBox>
+
+		<Button Content="Обновить" HorizontalAlignment="Right" VerticalAlignment="Center"
+				Margin="0 0 220 0" Background="White" Click="Update_Click">
+			
+		</Button>
+
+		<Button Content="Главное меню" HorizontalAlignment="Right" VerticalAlignment="Center"
+				Margin="0 0 70 0" Background="White" Click="exitClick">
+
+		</Button>
+		
+		<Grid Grid.Row="2" ColumnDefinitions="* 1000" Background="" ShowGridLines="True">
+			<ItemsControl Background="" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" 
+						  x:Name="newsControls" ItemsSource="{Binding newsItems}">
+				<ItemsControl.ItemsPanel>
+										
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border Margin="0 0 0 20" CornerRadius="5" BorderBrush="Black" BorderThickness="0"
+							Width="">
+						<StackPanel Orientation="Vertical">
+							<TextBlock Text="{Binding title}"></TextBlock>						
+						</StackPanel>	
+					</Border>
+				</DataTemplate>							
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>								
+		</Grid>
+	</Grid>
+</Window>

@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="1280" Height="720"
+		MaxWidth="1280" MaxHeight="720" MinWidth="1280" MinHeight="720"
+        x:Class="calendar.addWorker"
+		x:CompileBindings="False"
+		WindowStartupLocation="CenterScreen" 
+        Title="Добавить сотрудника">
+	<Grid RowDefinitions="*, 550, 70" ColumnDefinitions="640,*" ShowGridLines="False">
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#a1d99b">
+			<Ellipse HorizontalAlignment="Left" Fill="#238b45" Width="90" Height="90"
+					 Margin="20, 5, 0, 0">
+			</Ellipse>
+		</StackPanel>
+		<TextBlock HorizontalAlignment="Left" Text="Логотип" Grid.Row="0" Grid.Column="0"
+					   Margin="35, 0, 0, 0" VerticalAlignment="Center" FontWeight="Bold">
+		</TextBlock>
+		<Border Background="White" Grid.Row="0" Grid.Column="0" Width="800"
+				   Height="40" Grid.ColumnSpan="2" Margin="0, 0, 200, 0"
+				   CornerRadius="10">
+			<TextBlock Text="Добавление или редактирование сотрудника" VerticalAlignment="Center"
+					   FontSize="14" FontWeight="DemiBold" Margin="10">
+			</TextBlock>
+		</Border>
+		<StackPanel Grid.Row="1" Grid.Column="0" Background="LightGray"  
+					Margin="40, 40, 10, 0">
+			<TextBlock Text="Высший департамент" HorizontalAlignment="Right" Margin="0 10 54 0"
+					   FontSize="16"></TextBlock>
+			<ComboBox Name="highDepartmentChoice" DisplayMemberBinding="{Binding NameDepartmenthigh}"
+					  HorizontalAlignment="Right" Margin="0 10 162 0"
+					  SelectionChanged="HighLevelChoiceSelect"></ComboBox>
+			<TextBlock Text="Средний департамент" HorizontalAlignment="Right" Margin="0 10 50 0"
+					   FontSize="16"></TextBlock>
+			<ComboBox Name="mediumDepartmentChoice" DisplayMemberBinding="{Binding NameDepartmentmedium}"
+					  HorizontalAlignment="Right" Margin="0 10 162 0"></ComboBox>
+			<TextBlock Text="Низший департамент" HorizontalAlignment="Right" Margin="0 10 57 0"
+					   FontSize="16"></TextBlock>
+			<ComboBox Name="lowDepartmentChoice" DisplayMemberBinding="{Binding NameDepartmentlow}"
+					  HorizontalAlignment="Right" Margin="0 10 162 0"></ComboBox>
+
+			<TextBlock Text="ФИО" HorizontalAlignment="Left" Margin="10 0 0 0"
+					   FontSize="16"></TextBlock>
+			<TextBox Name="textBoxName" HorizontalAlignment="Left" Width="250"
+					 Margin="10 10 0 0"></TextBox>
+			<TextBlock Text="Телефон" HorizontalAlignment="Left" Margin="10 10 0 0"
+					   FontSize="16"></TextBlock>
+			<TextBox Name="textBoxPhone" HorizontalAlignment="Left" Width="250"
+					 Margin="10 10 0 0"></TextBox>
+			<TextBlock Text="Почта" HorizontalAlignment="Left" Margin="10 10 0 0"
+					   FontSize="16"></TextBlock>
+			<TextBox Name="textBoxEmail" HorizontalAlignment="Left" Width="250"
+					 Margin="10 10 0 0"></TextBox>
+			<TextBlock Text="Профессия" HorizontalAlignment="Left" Margin="10 10 0 0"
+					   FontSize="16"></TextBlock>
+			<ComboBox Name="position" DisplayMemberBinding="{Binding Jobname}"
+					  HorizontalAlignment="Left" Margin="10 10 0 0"
+					  
+					  ></ComboBox>
+			<TextBlock Text="Кабинет" HorizontalAlignment="Right" Margin="0 0 160 0"
+					   FontSize="16"></TextBlock>
+			<ComboBox Name="cabinet" DisplayMemberBinding="{Binding NumberCabinet}"
+					  HorizontalAlignment="Center" VerticalAlignment="" 
+					
+					  Margin="0 0 0 0"></ComboBox>
+		</StackPanel>
+		<Button Grid.Row="2" HorizontalAlignment="Left" Height="" Content="Сохранить"
+				Background="#a1d99b" Margin="38 0 0 20" Click="saveButton">			
+		</Button>
+		<Button Grid.Row="2" HorizontalAlignment="Left" Height="" Content="Удалить"
+				Background="#a1d99b" Margin="168 0 0 20" Click="deleteButton">
+		</Button>
+		<Button Grid.Row="2" HorizontalAlignment="Left" Height="" Content="Отмена"
+				Background="#a1d99b" Margin="278 0 0 20" Click="cancelButton">
+		</Button>
+
+		<TextBlock Grid.Row="1" Grid.Column="1" Text="" HorizontalAlignment="Center"
+				   VerticalAlignment="Center" Name="errorText">
+			
+		</TextBlock>
+
+		<CheckBox Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"
+				  Margin="0 0 180 20" Content="Уволен" x:Name="isFiredCheck"
+				  IsChecked="{Binding isFiredWorker}">
+			
+		</CheckBox>
+		
+	</Grid>
+</Window>
